@@ -4,9 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/moe_s/AndroidStudioProjects/HealthAssistant/app/src/main/res/layout/activity_alarm.xml" value="0.55" />
-        <entry key="..\:/Users/moe_s/AndroidStudioProjects/HealthAssistant/app/src/main/res/layout/activity_home.xml" value="0.5" />
+        <entry key="..\:/Users/moe_s/AndroidStudioProjects/HealthAssistant/app/src/main/res/layout/activity_h.xml" value="0.55" />
+        <entry key="..\:/Users/moe_s/AndroidStudioProjects/HealthAssistant/app/src/main/res/layout/activity_home.xml" value="0.33" />
         <entry key="..\:/Users/moe_s/AndroidStudioProjects/HealthAssistant/app/src/main/res/layout/activity_settings.xml" value="0.4512820512820513" />
-        <entry key="..\:/Users/moe_s/AndroidStudioProjects/HealthAssistant/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.5489583333333333" />
+        <entry key="..\:/Users/moe_s/AndroidStudioProjects/HealthAssistant/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.5" />
       </map>
     </option>
   </component>
