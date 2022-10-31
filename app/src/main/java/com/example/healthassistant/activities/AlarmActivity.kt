@@ -1,4 +1,6 @@
 package com.example.healthassistant.activities
 
-class AlarmActivity {
+import androidx.appcompat.app.AppCompatActivity
+
+class AlarmActivity : AppCompatActivity() {
 }
