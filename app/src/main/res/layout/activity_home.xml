@@ -104,5 +104,12 @@
         app:layout_constraintEnd_toStartOf="@+id/fab_med"
         app:layout_constraintTop_toTopOf="@+id/fab_med" />
 
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/snackbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/bot_linear_layout"
+        app:layout_constraintTop_toBottomOf="@+id/coordinatorLayout" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
