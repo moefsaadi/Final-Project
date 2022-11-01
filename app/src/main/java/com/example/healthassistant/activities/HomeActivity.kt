@@ -17,6 +17,7 @@ import com.google.android.material.snackbar.Snackbar
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
+    private var isOpen = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,28 +53,9 @@ class HomeActivity : AppCompatActivity() {
             }
         }
 
-        var isOpen = false
-        val fabOpenAnim: Animation = AnimationUtils.loadAnimation(this,R.anim.fab_open)
-        val fabCloseAnim: Animation = AnimationUtils.loadAnimation(this,R.anim.fab_close)
 
         binding.fabMain.setOnClickListener{
-            if(isOpen){
-
-                binding.fabAppt.startAnimation(fabCloseAnim)
-                binding.fabMed.startAnimation(fabCloseAnim)
-                binding.tvAppt.startAnimation(fabCloseAnim)
-                binding.tvMed.startAnimation(fabCloseAnim)
-
-                isOpen = false
-            } else {
-
-                binding.fabAppt.startAnimation(fabOpenAnim)
-                binding.fabMed.startAnimation(fabOpenAnim)
-                binding.tvAppt.startAnimation(fabOpenAnim)
-                binding.tvMed.startAnimation(fabOpenAnim)
-
-                isOpen = true
-            }
+            animateFab()
         }
 
         binding.fabMed.setOnClickListener{
@@ -111,13 +93,44 @@ class HomeActivity : AppCompatActivity() {
         return true
     }
 
+
+
+
     private fun snackbarCreate(message: String, action: String)
     {
         val snackbar = Snackbar.make(binding.snackbarLayout,message,Snackbar.LENGTH_INDEFINITE)
         snackbar.setAction(action){
             //Dismiss
         }
-        snackbar.anchorView = binding.bottomNavBar
+        snackbar.anchorView = binding.fabMain
         snackbar.show()
+    }
+
+    private fun animateFab()
+    {
+        val fabOpenAnim: Animation = AnimationUtils.loadAnimation(this,R.anim.fab_open)
+        val fabCloseAnim: Animation = AnimationUtils.loadAnimation(this,R.anim.fab_close)
+        val rotateForward: Animation = AnimationUtils.loadAnimation(this,R.anim.rotate_forward)
+        val rotateBackward: Animation = AnimationUtils.loadAnimation(this,R.anim.rotate_backward)
+
+        if(isOpen){
+
+            binding.fabMain.startAnimation(rotateBackward)
+            binding.fabAppt.startAnimation(fabCloseAnim)
+            binding.fabMed.startAnimation(fabCloseAnim)
+            binding.tvAppt.startAnimation(fabCloseAnim)
+            binding.tvMed.startAnimation(fabCloseAnim)
+
+            isOpen = false
+        } else {
+            binding.fabMain.startAnimation(rotateForward)
+            binding.fabAppt.startAnimation(fabOpenAnim)
+            binding.fabMed.startAnimation(fabOpenAnim)
+            binding.tvAppt.startAnimation(fabOpenAnim)
+            binding.tvMed.startAnimation(fabOpenAnim)
+
+            isOpen = true
+        }
+
     }
 }
