@@ -1,5 +1,8 @@
 package com.example.healthassistant.activities
 
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -24,12 +27,18 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //Set Home as selected
+        binding.bottomNavBar.selectedItemId = R.id.home_menu
+
 
         binding.bottomNavBar.setOnItemSelectedListener { item ->
             when(item.itemId){
                 R.id.alarm_menu ->
                 {
-                    //TODO: Navigate to Alarm Page
+
+                    val intent = Intent(this, AlarmActivity::class.java)
+                    overridePendingTransition(0,0)
+                    startActivity(intent)
 
                     snackbarCreate("Switched To Alarm Page","Dismiss")
 
@@ -39,14 +48,17 @@ class HomeActivity : AppCompatActivity() {
                 {
                     snackbarCreate("Switched To Home Page","Dismiss")
 
-                    //TODO: Navigate to Home Page
                     true
                 }
                 R.id.settings_menu ->
                 {
+
+                    val intent = Intent(this, SettingsActivity::class.java)
+                    overridePendingTransition(0,0)
+                    startActivity(intent)
+
                     snackbarCreate("Switched To Settings Page","Dismiss")
 
-                    //TODO: Navigate to Settings Page
                     true
                 }
                 else -> false
@@ -95,7 +107,6 @@ class HomeActivity : AppCompatActivity() {
 
 
 
-
     private fun snackbarCreate(message: String, action: String)
     {
         val snackbar = Snackbar.make(binding.snackbarLayout,message,Snackbar.LENGTH_INDEFINITE)
@@ -133,4 +144,6 @@ class HomeActivity : AppCompatActivity() {
         }
 
     }
+
+
 }
